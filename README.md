@@ -8,43 +8,27 @@
 
 ---
 
-## 界面预览（前端可视化）
+## 界面预览
 
 <p align="center">
-  <img src="pic/知识图谱总览页.png" width="840" alt="知识图谱总览页">
-  <br><em>知识图谱总览页 —— 按设备 / 系统 / 故障现象 / 原因 / 维修方案多维可视化</em>
+  <img src="pic/船舶诊断登录界面.png" width="700" alt="船舶诊断登录界面">
+  <br><em>船舶诊断登录 —— 基于船舶身份信息的会话初始化入口</em>
 </p>
 
-| 智能问答诊断（中文） | 故障树分析结果总览 |
-|:---:|:---:|
-| <img src="pic/智能问答诊断界面—中文版.png" width="400" alt="智能问答诊断界面-中文版"> | <img src="pic/故障树分析结果总览页.png" width="400" alt="故障树分析结果总览页"> |
+<p align="center">
+  <img src="pic/智能问答诊断界面—中文版.png" width="700" alt="智能问答诊断界面">
+  <br><em>智能问答诊断 —— 基于知识图谱结构的多轮专家问答（中英双语）</em>
+</p>
 
-| 故障树多路径流向分析 | 图谱关系维护 |
-|:---:|:---:|
-| <img src="pic/故障树多路径流向分析页.png" width="400" alt="故障树多路径流向分析页"> | <img src="pic/图谱关系维护页.png" width="400" alt="图谱关系维护页"> |
+<p align="center">
+  <img src="pic/知识图谱总览分析页.png" width="700" alt="知识图谱总览分析页">
+  <br><em>知识图谱总览分析 —— 按设备 / 系统 / 故障现象 / 原因 / 维修方案多维可视化</em>
+</p>
 
-| 图谱节点维护 | 故障记录历史 |
-|:---:|:---:|
-| <img src="pic/图谱节点维护页.png" width="400" alt="图谱节点维护页"> | <img src="pic/故障记录历史页.png" width="400" alt="故障记录历史页"> |
-
-| 船舶诊断登录 | 语音诊断输入 |
-|:---:|:---:|
-| <img src="pic/船舶诊断登录界面.png" width="400" alt="船舶诊断登录界面"> | <img src="pic/语音诊断输入页.png" width="400" alt="语音诊断输入页"> |
-
-### 全部界面
-| 页面 | 预览 |
-|------|------|
-| 优先排查建议页 | <img src="pic/优先排查建议页.png" width="180"> |
-| 图片上传方式选择页 | <img src="pic/图片上传方式选择页.png" width="180"> |
-| 故障树分支选择页 | <img src="pic/故障树分支选择页.png" width="180"> |
-| 故障树分析输入页 | <img src="pic/故障树分析输入页.png" width="180"> |
-| 故障路径详情页 | <img src="pic/故障路径详情页.png" width="180"> |
-| 诊断分分析页 | <img src="pic/诊断分分析页.png" width="180"> |
-| 智能问答诊断界面（英文版） | <img src="pic/智能问答诊断界面——英文版.png" width="180"> |
-| 知识图谱总览分析页 | <img src="pic/知识图谱总览分析页.png" width="180"> |
-| 知识图谱关联页详情 | <img src="pic/知识图谱关联页详情.png" width="180"> |
-| 节点查询页 | <img src="pic/节点查询页.png" width="180"> |
-| 故障记录新增页 | <img src="pic/故障记录新增页.png" width="180"> |
+<p align="center">
+  <img src="pic/故障记录历史页.png" width="700" alt="故障处理记录中心">
+  <br><em>故障处理记录中心 —— 历史会话管理与 AI 报告生成</em>
+</p>
 
 ---
 
@@ -157,7 +141,7 @@ python query_neo4j.py
 ├── query_neo4j.py          # 图谱统计脚本
 ├── import_ship_dataset_to_graph.py
 ├── requests.txt            # 依赖清单
-├── pic/                    # 前端界面效果图（20+ 界面截图）
+├── pic/                    # 前端界面效果图
 ├── A/                      # 知识图谱模块
 │   ├── backend/            #   图谱 REST 后端（Flask）
 │   ├── data/               #   图谱数据
