@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "session_id": "uuid-12345",
+    "timestamp": "2026-03-16 21:40:00",
+    "source": "Expert_LLM_Learning"
+  },
+  "knowledge_content": {
+    "symptom": "第2缸排气温度异常升高",
+    "equipment": "喷油器",
+    "system": "燃油系统",
+    "root_cause": "喷油器针阀卡滞导致雾化不良",
+    "repair": "拆检并清洗喷油器，必要时更换针阀组件",
+    "diagnosis": "检查单缸排温、喷油雾化状态及喷油器积碳情况",
+    "confidence_score": 0.95
+  },
+  "graph_updates": [
+    {
+      "action": "MERGE",
+      "start_node": {
+        "label": "Symptom",
+        "name": "排烟温度高"
+      },
+      "relationship": "HAS_CAUSE",
+      "end_node": {
+        "label": "Cause",
+        "name": "喷油器故障"
+      },
+      "properties": {
+        "detail": "单缸突发性高温",
+        "weight_increment": 1
+      }
+    },
+    {
+      "action": "MERGE",
+      "start_node": {
+        "label": "Cause",
+        "name": "喷油器故障"
+      },
+      "relationship": "HAS_REPAIR",
+      "end_node": {
+        "label": "Repair",
+        "name": "清洗研磨喷油器组件"
+      }
+    },
+    {
+      "action": "MERGE",
+      "start_node": {
+        "label": "Cause",
+        "name": "喷油器故障"
+      },
+      "relationship": "HAS_DIAGNOSIS",
+      "end_node": {
+        "label": "Diagnosis",
+        "name": "检查喷油器雾化状态和针阀动作"
+      }
+    },
+    {
+      "action": "MERGE",
+      "start_node": {
+        "label": "Symptom",
+        "name": "排烟温度高"
+      },
+      "relationship": "HAS_EQUIPMENT",
+      "end_node": {
+        "label": "Equipment",
+        "name": "喷油器"
+      }
+    },
+    {
+      "action": "MERGE",
+      "start_node": {
+        "label": "Equipment",
+        "name": "喷油器"
+      },
+      "relationship": "BELONGS_TO",
+      "end_node": {
+        "label": "System",
+        "name": "燃油系统"
+      }
+    }
+  ]
+}
