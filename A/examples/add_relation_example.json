@@ -1,0 +1,7 @@
+{
+  "start_label": "Symptom",
+  "start_name": "排烟温度高",
+  "relationship": "HAS_CAUSE",
+  "end_label": "Cause",
+  "end_name": "喷油器针阀卡滞"
+}
