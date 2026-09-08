@@ -1,8 +1,50 @@
-# 船舶故障诊断智能问答系统（Ship Fault Diagnosis Q&A System）
+# 船舶故障诊断智能问答系统
 
-面向船舶装备故障诊断场景的智能问答系统，覆盖 **知识图谱驱动的故障问答**、**轻量级本地模型部署**（语音识别、图像检测、本地大模型）与 **Streamlit 前端**。
+> **Ship Fault Diagnosis & Q&A System** — 面向船舶装备故障诊断场景的智能化解决方案
 
-> 说明：本仓库为该项目的**前端、知识图谱、模型轻量化**三部分代码；**RAG（检索增强生成）链路由团队其他成员负责维护，未包含在本仓库中**。前端中对 RAG 模块的调用已做降级处理，缺少该模块时自动返回空上下文，不影响其余功能。
+**Streamlit 前端可视化 · 知识图谱推理 · 本地轻量模型**  |  `Python` · `Neo4j` · `YOLOv8n` · `Whisper` · `Ollama`
+
+> 本仓库包含 **前端、知识图谱、模型轻量化** 三部分代码；**RAG（检索增强生成）链路由团队其他成员负责维护，未包含在本仓库中**。前端对 RAG 的调用已做降级处理，缺失该模块时自动返回空上下文，不影响其余功能独立运行。
+
+---
+
+## 界面预览（前端可视化）
+
+<p align="center">
+  <img src="pic/知识图谱总览页.png" width="840" alt="知识图谱总览页">
+  <br><em>知识图谱总览页 —— 按设备 / 系统 / 故障现象 / 原因 / 维修方案多维可视化</em>
+</p>
+
+| 智能问答诊断（中文） | 故障树分析结果总览 |
+|:---:|:---:|
+| <img src="pic/智能问答诊断界面—中文版.png" width="400" alt="智能问答诊断界面-中文版"> | <img src="pic/故障树分析结果总览页.png" width="400" alt="故障树分析结果总览页"> |
+
+| 故障树多路径流向分析 | 图谱关系维护 |
+|:---:|:---:|
+| <img src="pic/故障树多路径流向分析页.png" width="400" alt="故障树多路径流向分析页"> | <img src="pic/图谱关系维护页.png" width="400" alt="图谱关系维护页"> |
+
+| 图谱节点维护 | 故障记录历史 |
+|:---:|:---:|
+| <img src="pic/图谱节点维护页.png" width="400" alt="图谱节点维护页"> | <img src="pic/故障记录历史页.png" width="400" alt="故障记录历史页"> |
+
+| 船舶诊断登录 | 语音诊断输入 |
+|:---:|:---:|
+| <img src="pic/船舶诊断登录界面.png" width="400" alt="船舶诊断登录界面"> | <img src="pic/语音诊断输入页.png" width="400" alt="语音诊断输入页"> |
+
+### 全部界面
+| 页面 | 预览 |
+|------|------|
+| 优先排查建议页 | <img src="pic/优先排查建议页.png" width="180"> |
+| 图片上传方式选择页 | <img src="pic/图片上传方式选择页.png" width="180"> |
+| 故障树分支选择页 | <img src="pic/故障树分支选择页.png" width="180"> |
+| 故障树分析输入页 | <img src="pic/故障树分析输入页.png" width="180"> |
+| 故障路径详情页 | <img src="pic/故障路径详情页.png" width="180"> |
+| 诊断分分析页 | <img src="pic/诊断分分析页.png" width="180"> |
+| 智能问答诊断界面（英文版） | <img src="pic/智能问答诊断界面——英文版.png" width="180"> |
+| 知识图谱总览分析页 | <img src="pic/知识图谱总览分析页.png" width="180"> |
+| 知识图谱关联页详情 | <img src="pic/知识图谱关联页详情.png" width="180"> |
+| 节点查询页 | <img src="pic/节点查询页.png" width="180"> |
+| 故障记录新增页 | <img src="pic/故障记录新增页.png" width="180"> |
 
 ---
 
@@ -10,9 +52,9 @@
 
 ### 1. 前端（Streamlit 应用）
 - 知识图谱可视化（`streamlit-agraph` / `pyvis`）：按设备、系统、故障现象、原因、维修方案等维度展示与筛选
-- 多轮图谱对话：基于知识图谱结构的专家问答
+- 多轮图谱对话：基于知识图谱结构的专家问答（中 / 英双语）
 - 故障案例管理与自学习：录入故障记录，一键推送知识图谱（含 LLM 结构化抽取）
-- 语音输入（Whisper）与图像识别（YOLOv8n）入口、中英翻译
+- 语音输入（Whisper）与图像识别（YOLOv8n）入口
 - 用户登录 / 会话管理与操作日志
 
 | 文件 | 说明 |
@@ -21,7 +63,7 @@
 | `database.py` | SQLite 数据层（会话、故障记录、日志） |
 | `graph_chat.py` | 知识图谱多轮对话（LangGraph + DeepSeek R1） |
 | `kg_client.py` | 知识图谱更新接口客户端 |
-| `pic/` | 前端界面素材 |
+| `pic/` | 前端界面素材与效果图 |
 
 ### 2. 知识图谱（Neo4j）
 - 图结构：`Symptom / Equipment / System / Cause / Repair / Diagnosis / MaintenanceCase` 等节点类型
@@ -52,6 +94,18 @@
 
 ---
 
+## 技术栈
+
+| 领域 | 技术 |
+|------|------|
+| 前端 | Streamlit · streamlit-agraph · pyvis |
+| 知识图谱 | Neo4j · Cypher · Flask（REST） |
+| 对话引擎 | LangGraph · DeepSeek R1 |
+| 模型轻量化 | YOLOv8n · Whisper tiny · Qwen2.5-7B（Ollama） |
+| 数据层 | SQLite · JSON |
+
+---
+
 ## 快速开始
 
 ### 环境要求
@@ -62,7 +116,7 @@
 
 ### 安装依赖
 ```bash
-pip install -r requirements.txt
+pip install -r requests.txt
 ```
 
 ### 环境变量（敏感信息不写入仓库）
@@ -103,7 +157,7 @@ python query_neo4j.py
 ├── query_neo4j.py          # 图谱统计脚本
 ├── import_ship_dataset_to_graph.py
 ├── requests.txt            # 依赖清单
-├── pic/                    # 前端素材
+├── pic/                    # 前端界面效果图（20+ 界面截图）
 ├── A/                      # 知识图谱模块
 │   ├── backend/            #   图谱 REST 后端（Flask）
 │   ├── data/               #   图谱数据
