@@ -1,0 +1,67 @@
+# =====================
+# 运行数据与日志
+# =====================
+ship_qa.db
+*.log
+output.log
+nul
+_nul
+neo4j_stats.txt
+server_logs.txt
+streamlit_logs.txt
+server_status.txt
+ssh_results.txt
+D:serviceo*
+0.3.0
+
+# =====================
+# 部署二进制与内网穿透工具
+# =====================
+cloudflared*
+ollama-linux-amd64
+sunny*
+tools/
+start_*.bat
+Sunny-Ngrok启动工具.bat
+
+# =====================
+# 部署排查辅助脚本
+# =====================
+check_*.py
+deploy_fix.py
+verify*.py
+ssh_helper.py
+
+# =====================
+# RAG 模块（团队其他成员维护，未纳入本仓库）
+# =====================
+B/HAI/src/main_rag.py
+B/HAI/src/retriever.py
+B/HAI/src/reranker.py
+B/HAI/src/embeddings.py
+B/HAI/src/build_kb.py
+B/HAI/src/retrieve_info.py
+B/HAI/src/api_server.py
+B/HAI/src/llm_interface.py
+B/HAI/requirements.txt
+B/HAI/kb/
+
+# RAG 链路所用嵌入/重排模型（随 RAG 一并排除）
+B/HAI/models/bge-*
+
+# =====================
+# 与 A/data 重复的根目录图谱数据
+# =====================
+/neo4j_nodes.csv
+/neo4j_relationships.csv
+
+# =====================
+# Python / IDE
+# =====================
+__pycache__/
+*.pyc
+.idea/
+# =====================
+# 全角冒号命名的空输出文件
+# =====================
+D*serviceo*
